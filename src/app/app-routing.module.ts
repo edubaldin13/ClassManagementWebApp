@@ -4,6 +4,9 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard, AuthGuardChild } from './services/guards/auth-guard.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppComponent } from './app.component';
+import { CadastroCursosComponent } from './cadastro-cursos/cadastro-cursos.component';
+import { MatrizCurricularComponent } from './matriz-curricular/matriz-curricular.component';
+import { CadastroHorariosProfessorComponent } from './cadastro-horarios-professor/cadastro-horarios-professor.component';
 
 const routes: Routes = [
   
@@ -13,16 +16,14 @@ const routes: Routes = [
 {
   path: '', component: AppComponent,canActivate: [AuthGuard], canActivateChild: [AuthGuardChild],
   children: [
-    { path: 'dashboard', component: DashboardComponent}
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+    { path: 'dashboard', component: DashboardComponent},
+    { path: 'cadastro-cursos', component: CadastroCursosComponent},
+    { path: 'matriz-curricular/:courseId', component: MatrizCurricularComponent},
+    { path: 'horarios-professor', component: CadastroHorariosProfessorComponent}
   ]
 }
 ];
-// const routes: Routes = [
-// {
-//   path: '', component: LoginComponent
-// }
-// ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled', bindToComponentInputs: true})],
   exports: [RouterModule]

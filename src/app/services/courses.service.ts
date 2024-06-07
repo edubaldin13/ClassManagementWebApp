@@ -4,9 +4,9 @@ import { LocalStorageService } from './local-storage.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ManagerService extends GenericFetchService<any>  {
+export class CourseService extends GenericFetchService<any>  {
   constructor(ls: LocalStorageService) {
     super(ls);
-    this.setContextUrl('/manager');
+    this.setContextUrl('/graduationcourse');
   }
 }

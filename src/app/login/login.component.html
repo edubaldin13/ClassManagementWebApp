@@ -1,41 +1,26 @@
-<div >
-    <!-- <form [formGroup]="formLogin">
-        <div class="login-form">
-            <label>Email</label>
-            <input type="email" formControlName="email">
-            <label>Password</label>
-            <input type="password" formControlName="password">
-            <button type="button" (click)="logar()">Login</button>
-        </div>
-    </form> -->
-    <form class="flex justify-content-center" [formGroup]="formLogin">
-        <div class="grid col-12">
-            <div class="flex flex-column w-full logo-container">
-                <span class="login-summary">Identifique-se</span>
-                <div class="login-detail">
-                    <span class="p-button-secondary p-button-label p-secondary">Seja bem vindo! Insira suas credenciais para acessar a plataforma.</span>
-                </div>
-            </div>
-            <div class="mt-6 flex flex-column w-full">
-                <div class="input-wrapper">
+<div class="flex justify-content-center ">
+        <form class="flex justify-content-center col-6 " [formGroup]="formLogin">
+            <div class="grid col-6 justify-content-center cor">
+                <div class="mt-4 flex flex-column col-8">
                     <label>Email</label>
-                    <input class="mt-2 w-full" type="text" formControlName="email" autocomplete="off"
+                    <div class="">
+                        <input class="mt-2 w-full" type="text" formControlName="email" autocomplete="off"
                         pInputText>
+                    </div>
                 </div>
-            </div>
-            <div class="mt-4 flex flex-column w-full">
-                <div class="input-wrapper">
-                    <label>Senha</label>
-                    <input class="mt-2 w-full" type="password" formControlName="password"
+                <div class="mt-4 flex flex-column col-8">
+                    <div class="">
+                        <label>Senha</label>
+                        <input class="mt-2 w-full" type="password" formControlName="password"
                         autocomplete="off" pInputText>
+                    </div>
+                </div>
+                <div class="mt-4 flex flex-column col-6">
+                    <button type="submit" pButton
+                    (click)="login()" class="cursor-pointer"><i
+                        class="pi pi-sign-in w-full"
+                        style="font-size: 20px"></i><label>Entrar</label></button>
                 </div>
             </div>
-            <div class="col-12 lg:col-12 md:col-12 button-container">
-                <button [style]="{'width': '100%'}" type="submit" pButton
-                    (click)="login()" class="justify-content-center"><i
-                    class="pi pi-sign-in mr-2"
-                    style="font-size: 20px"></i><label>Entrar</label></button>
-            </div>
-        </div>
     </form>
 </div>

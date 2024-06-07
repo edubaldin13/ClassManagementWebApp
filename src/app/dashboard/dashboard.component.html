@@ -1,1 +1,20 @@
-<p>dashboard works!</p>
+
+<div class="flex justify-content-center ">
+    <div class="cor col-8 p-2">
+        <div class="flex flex-column align-items-center justify-content-center">
+            <div class="flex align-items-center justify-content-center">
+                <h3>Olá {{name}}, seja bem vindo!</h3>
+            </div>
+            <div class="flex flex-row flex-wrap">
+                
+                <button (click)="CadastroCursos()">
+                    Cadastro de cursos
+                </button>
+                <button (click)="DispHorarios()">
+                    Disponibilidade de horários
+                </button>
+            </div>
+            <div *ngIf=""></div>
+        </div>
+    </div>
+</div>

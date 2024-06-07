@@ -1,0 +1,24 @@
+<div class="flex justify-content-center ">
+    <div class="flex flex-column cor col-8 p-2">
+        <div class="flex flex-column justify-content-center align-items-center">
+            <div class="flex align-items-center justify-content-center">
+                <h3 class="mr-4">Cadastro de cursos</h3>
+                <app-botao-voltar></app-botao-voltar>
+            </div>
+            <h3>Matriz Curricular</h3>
+            <div class="flex flex-column col-10">
+            </div>
+            <div>
+                <h3>Professores disponiveis</h3>
+                <div *ngFor="let item of teachers">
+                <div class="flex flex-column">
+                    <button (click)="adicionarAoCurso(courseId, item.teacherId)">Adicionar</button>
+                    <div class="mb-3"><h4>Nome do professor:</h4>
+                         {{item.name}}
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

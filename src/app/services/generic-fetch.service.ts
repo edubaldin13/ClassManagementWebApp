@@ -62,7 +62,7 @@ export abstract class GenericFetchService<TResult> {
     }; 
     const requestOptions: RequestInit = {
       headers: headers,
-      method: 'PUT',
+      method: 'PATCH',
       body: data ? JSON.stringify(data) : null
     };
     const fetchUrl = `${this._baseUrl}${this._contextUrl}${(url ? url : '')}`;

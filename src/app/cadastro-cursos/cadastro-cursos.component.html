@@ -1,0 +1,78 @@
+<div class="flex justify-content-center ">
+    <div class="flex flex-column cor col-8 p-2">
+        <div class="flex flex-column justify-content-center align-items-center">
+            <div class="flex align-items-center justify-content-center">
+                <h3 class="mr-4">Cadastro de cursos</h3>
+                <app-botao-voltar></app-botao-voltar>
+            </div>
+            <h3>Cursos</h3>
+            <div class="flex flex-row">
+                <div class="ml-2" *ngFor="let item of cursosCadastrados">
+                    <button (click)="excluir(item.graduationCourseId)">Excluir</button>
+                    <button (click)="editarMatriz(item.graduationCourseId)">Matriz Curricular</button>
+                    <div><h4>Noma do curso:</h4>
+                         {{item.name}}
+                    </div>
+                    <div>
+                        <h3>Cordenador:</h3>
+                        {{item.managerName}}
+                    </div>
+                    <div>
+                        <h3>Duração da Aula:</h3>
+                        {{item.classDuration}}
+                    </div>
+                    <div>
+                        <h3>Quantidade de aulas:</h3>
+                        {{item.classesQuantity}}
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-column col-10">
+                <h3>Novo Curso</h3>
+                <div>
+                    <form class="flex flex-column justify-content-between col-6 " [formGroup]="formCursos">
+                        <div class="flex col-6 cor">
+                        <div class="mt-4 flex flex-column col-8">
+                            <label>Nome do Curso</label>
+                            <div class="">
+                                <input class="mt-2 w-full" type="text" formControlName="name" autocomplete="off"
+                                pInputText>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex flex-column col-12">
+                            <label>Cordenador</label>
+                            <div class=" flex flex-column col-8">
+                                <!-- <input class="mt-2 w-full" type="text" formControlName="managerId" autocomplete="off"
+                                    pInputText> -->
+                                    <p-multiSelect class="mt-2 mr-4" [options]="managers"
+                                    formControlName="managerId" class="multSelect" optionValue="managerId"
+                                    optionLabel="name"></p-multiSelect>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex flex-column col-8 ml-2">
+                                <label>Duração</label>
+                                <div class="">
+                                    <input class="mt-2 w-full" type="text" formControlName="classDuration" autocomplete="off"
+                                    pInputText>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex flex-column col-8">
+                                <label class="white-space-nowrap">Quantidade de Aulas</label>
+                                <div class="">
+                                    <input class="mt-2 w-full" type="number" formControlName="classQuantity" autocomplete="off"
+                                    pInputText>
+                                </div>
+                        </div>
+                        <div class="ml-4 mt-4 flex flex-column col-6">
+                            <button type="submit" pButton (click)="novoCurso()"
+                             class="cursor-pointer"><i
+                             class="pi pi-sign-in w-full"
+                                style="font-size: 20px"></i><label>Novo Curso</label></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

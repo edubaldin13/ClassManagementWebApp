@@ -38,4 +38,7 @@ export class LoginComponent {
     this.ls.saveData("token", token);
     this.ls.saveData("credentials", this.jwtHelper.decodeToken(token));
   }
+  registrar(){
+    this.router.navigate(['registrar'])
+  }
 }

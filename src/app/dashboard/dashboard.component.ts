@@ -17,6 +17,13 @@ MatrizCurricular() {
 CadastroCursos() {
   this.router.navigate(['cadastro-cursos'])
 }
+AtivacaoDeCadastros() {
+  this.router.navigate(['ativacao-cadastros'])
+}
+logout(){
+  this.ls.clearData();
+  this.router.navigate(['login'])
+}
   name: string;
   constructor( private ls:LocalStorageService
              , private router: Router

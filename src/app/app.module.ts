@@ -13,7 +13,11 @@ import { CadastroHorariosProfessorComponent } from './cadastro-horarios-professo
 import { BotaoVoltarComponent } from './botao-voltar/botao-voltar.component';
 import { MultiSelectModule } from 'primeng/multiselect';  
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import BrowserAnimationsModule
-import { TableModule } from 'primeng/table'; // Import TableModule
+import { TableModule } from 'primeng/table';
+import { RegistroComponent } from './registro/registro.component'; // Import TableModule
+import { DropdownModule } from 'primeng/dropdown';
+import { AtivacaoCadastrosComponent } from './ativacao-cadastros/ativacao-cadastros.component';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import { TableModule } from 'primeng/table'; // Import TableModule
     CadastroCursosComponent,
     MatrizCurricularComponent,
     CadastroHorariosProfessorComponent,
-    BotaoVoltarComponent
+    BotaoVoltarComponent,
+    RegistroComponent,
+    AtivacaoCadastrosComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,9 @@ import { TableModule } from 'primeng/table'; // Import TableModule
     ReactiveFormsModule,
     MultiSelectModule,
     BrowserAnimationsModule,
-    TableModule
+    TableModule,
+    DropdownModule,
+    ButtonModule
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService],

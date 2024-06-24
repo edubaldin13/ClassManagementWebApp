@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CadastroCursosComponent } from './cadastro-cursos/cadastro-cursos.component';
 import { MatrizCurricularComponent } from './matriz-curricular/matriz-curricular.component';
 import { CadastroHorariosProfessorComponent } from './cadastro-horarios-professor/cadastro-horarios-professor.component';
+import { RegistroComponent } from './registro/registro.component';
+import { AtivacaoCadastrosComponent } from './ativacao-cadastros/ativacao-cadastros.component';
 
 const routes: Routes = [
   
@@ -20,8 +22,12 @@ const routes: Routes = [
     { path: 'dashboard', component: DashboardComponent},
     { path: 'cadastro-cursos', component: CadastroCursosComponent},
     { path: 'matriz-curricular/:courseId', component: MatrizCurricularComponent},
-    { path: 'horarios-professor', component: CadastroHorariosProfessorComponent}
+    { path: 'horarios-professor', component: CadastroHorariosProfessorComponent},
+    { path: 'ativacao-cadastros', component: AtivacaoCadastrosComponent}
   ]
+},
+{
+  path: 'registrar', component: RegistroComponent
 }
 ];
 @NgModule({

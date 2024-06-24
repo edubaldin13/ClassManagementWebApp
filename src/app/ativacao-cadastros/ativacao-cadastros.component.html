@@ -1,0 +1,36 @@
+<div class="flex justify-content-center ">
+    <div class="cor col-8 p-2">
+        <div class="flex flex-column align-items-center justify-content-center">
+            <div class="flex align-items-center justify-content-center">
+                <h3>Ativação de Cadastros</h3>
+            </div>
+            <div class="flex flex-row flex-wrap pb-4">
+                <p-table [value]="registers" [tableStyle]="{ 'min-width': '40rem' }">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Cargo</th>
+                            <th></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-register>
+                        <tr>
+                            <td>{{ register.name }}</td>
+                            <td>{{ register.email }}</td>
+                            <td>{{ register.role }}</td>
+                            <td><button 
+                                (click)="AtivarCadastro(register.registerId)"
+                                pButton 
+                                pRipple 
+                                label="Ativar" 
+                                class="p-button-success">
+                            </button></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+            <div *ngIf=""></div>
+        </div>
+    </div>
+</div>

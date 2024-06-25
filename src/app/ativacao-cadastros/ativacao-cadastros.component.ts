@@ -12,9 +12,7 @@ export class AtivacaoCadastrosComponent implements OnInit{
   ){}
   registers: Array<any>;
   ngOnInit(): void {
-    this.registerService.get().then(res => {
-      this.registers = this.mapRoleParaPT(res);
-    });
+    this.getRegisters();
   }
   private mapRoleParaPT(roles : any): Array<any>{
     roles.forEach((role: { role: string; }) => {
@@ -26,11 +24,17 @@ export class AtivacaoCadastrosComponent implements OnInit{
     this.registerService.put(`/${id}`).then(
       res => {
         debugger
+        this.getRegisters();
       }
     ).catch(
       err => {
         debugger
       }
     )
+  }
+  getRegisters(){
+    this.registerService.get().then(res => {
+      this.registers = this.mapRoleParaPT(res);
+    });
   }
 }

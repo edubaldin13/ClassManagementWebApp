@@ -25,9 +25,11 @@ logout(){
   this.router.navigate(['login'])
 }
   name: string;
+  role: string;
   constructor( private ls:LocalStorageService
              , private router: Router
   ){
+    this.role = this.ls.getData("credentials").role;
     this.name = JSON.parse(localStorage.getItem("credentials")).unique_name;
   }
 }

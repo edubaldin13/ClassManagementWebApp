@@ -7,13 +7,13 @@
             </div>
             <div class="flex flex-row flex-wrap">
                 
-                <button (click)="CadastroCursos()">
+                <button (click)="CadastroCursos()" *ngIf="role != 'Teacher'">
                     Cadastro de cursos
                 </button>
-                <button (click)="DispHorarios()">
+                <button (click)="DispHorarios()" *ngIf="role == 'Teacher' ">
                     Disponibilidade de horários
                 </button>
-                <button (click)="AtivacaoDeCadastros()">
+                <button (click)="AtivacaoDeCadastros()" *ngIf="role == 'Admin' || role == 'Principal'">
                     Ativação de cadastros
                 </button>
             </div>

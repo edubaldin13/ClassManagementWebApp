@@ -18,8 +18,10 @@ export class MatrizCurricularComponent implements OnInit{
   ) {}
   ngOnInit(): void {
     this.getTeachers();
+    this.getTeachersWithoutCourse();
   }
   teachers: Array<any> = [];
+  registeredTeachers: Array<any> = [];
   formMatriz: FormGroup = this.formBuilder.group({
     name: ['', [Validators.required]],
     managerId: ['', [Validators.required]],
@@ -30,7 +32,7 @@ export class MatrizCurricularComponent implements OnInit{
   cursosCadastrados: Array<any>  = [];
   async getTeachers(){
     await this.teacherService.get('').then(res =>{
-      this.teachers = res;
+      this.registeredTeachers = res;
     }).catch(err =>{
       console.log(err)
     });
@@ -39,9 +41,20 @@ export class MatrizCurricularComponent implements OnInit{
     debugger
     this.teacherService.put(`/${courseId}/${teacherId}`).then(res => {
       this.getTeachers()
+      this.getTeachersWithoutCourse();
       debugger
     }).catch(err => {
       console.log('erro', err)
+    });
+  }
+  DesvincularCurso(teacherId: any){
+
+  };
+  async getTeachersWithoutCourse(){
+    await this.teacherService.get('/no-course').then(res =>{
+      this.teachers = res;
+    }).catch(err =>{
+      console.log(err)
     });
   }
 }

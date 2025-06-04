@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
+
+import { provideToastr } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +21,10 @@ import { RegistroComponent } from './registro/registro.component'; // Import Tab
 import { DropdownModule } from 'primeng/dropdown';
 import { AtivacaoCadastrosComponent } from './ativacao-cadastros/ativacao-cadastros.component';
 import { ButtonModule } from 'primeng/button';
+import { ToastrModule } from 'ngx-toastr';
+import { BotaoAdicionaComponent } from './matriz-curricular/botao-adiciona-prof-curso/botao-adiciona-prof-curso';
+import { ModalAdicionarComponent } from './matriz-curricular/modal-adicionar/modal-adicionar';
+import { AdicionarMateriaCursoComponent } from './matriz-curricular/adicionar-materia-curso/adicionar-materia-curso';
 
 @NgModule({
   declarations: [
@@ -29,7 +36,10 @@ import { ButtonModule } from 'primeng/button';
     CadastroHorariosProfessorComponent,
     BotaoVoltarComponent,
     RegistroComponent,
-    AtivacaoCadastrosComponent
+    AtivacaoCadastrosComponent,
+    BotaoAdicionaComponent,
+    ModalAdicionarComponent,
+    AdicionarMateriaCursoComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +50,11 @@ import { ButtonModule } from 'primeng/button';
     BrowserAnimationsModule,
     TableModule,
     DropdownModule,
-    ButtonModule
+    ButtonModule,
+    ToastrModule.forRoot()
   ],
   providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService],
+    JwtHelperService, provideAnimations(), provideToastr()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

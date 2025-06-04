@@ -1,25 +1,26 @@
-<div class="flex justify-content-center ">
-        <form class="flex justify-content-center col-6 " [formGroup]="formLogin">
-            <div class="grid col-6 justify-content-center cor">
-                <div class="mt-4 flex flex-column col-8">
+<div class="flex flex-row cor h-full align-middle items-center justify-center m-5 p-6">
+    <div class="flex  items-center justify-between bg-amber-700 p-16">
+        <img src="assets/img/bemvindo.jpeg" class="align-middle h-4 w-4" alt="Seja bem-vindo!"/>
+    </div>
+    <form class="flex flex-col mr-4 align-middle items-center justify-center p-2" [formGroup]="formLogin">
+            <div class="justify-center">
+                <div class="flex flex-column">
                     <label>Email</label>
                     <div class="">
-                        <input class="mt-2 w-full" type="text" formControlName="email" autocomplete="off"
+                        <input class="bg-white w-full" type="text" formControlName="email" autocomplete="off"
                         pInputText>
                     </div>
                 </div>
-                <div class="mt-4 flex flex-column col-8">
+                <div class="flex flex-column">
                     <div class="">
                         <label>Senha</label>
-                        <input class="mt-2 w-full" type="password" formControlName="password"
+                        <input class="bg-white mt-2 w-full" type="password" formControlName="password"
                         autocomplete="off" pInputText>
                     </div>
                 </div>
-                <div class="mt-4 flex flex-column col-6">
+                <div class="flex my-2 items-center align-middle text-center flex-column">
                     <button type="submit" pButton
-                    (click)="login()" class="cursor-pointer"><i
-                    class="pi pi-sign-in w-full"
-                    style="font-size: 20px"></i><label>Entrar</label></button>
+                    (click)="login()" class="flex justify-center align-middle text-center cursor-pointer">Entrar</button>
                     <div class="mt-4">
                         <button (click)="registrar()" class="w-full">Não possui conta? Registre-se</button>
                     </div>

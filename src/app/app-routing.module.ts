@@ -9,6 +9,7 @@ import { MatrizCurricularComponent } from './matriz-curricular/matriz-curricular
 import { CadastroHorariosProfessorComponent } from './cadastro-horarios-professor/cadastro-horarios-professor.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AtivacaoCadastrosComponent } from './ativacao-cadastros/ativacao-cadastros.component';
+import { ModalAdicionarComponent } from './matriz-curricular/modal-adicionar/modal-adicionar';
 
 const routes: Routes = [
   
@@ -23,7 +24,8 @@ const routes: Routes = [
     { path: 'cadastro-cursos', component: CadastroCursosComponent},
     { path: 'matriz-curricular/:courseId', component: MatrizCurricularComponent},
     { path: 'horarios-professor', component: CadastroHorariosProfessorComponent},
-    { path: 'ativacao-cadastros', component: AtivacaoCadastrosComponent}
+    { path: 'ativacao-cadastros', component: AtivacaoCadastrosComponent},
+    { path: 'matriz-curricular/:courseId/horarios/adicionar/:teacherDayId/:addType', component: ModalAdicionarComponent},
   ]
 },
 {

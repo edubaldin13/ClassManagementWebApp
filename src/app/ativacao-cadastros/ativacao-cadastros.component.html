@@ -1,11 +1,11 @@
-<div class="flex justify-content-center ">
-    <div class="cor col-8 p-2">
-        <div class="flex flex-column align-items-center justify-content-center">
+<div class="flex cor justify-content-center ">
+    <div class="cor p-2">
+        <div class="flex flex-column align-items-center content-between">
             <div class="flex align-items-center justify-content-center">
-                <h3>Ativação de Cadastros</h3> <app-botao-voltar class="ml-4"></app-botao-voltar>
+                <h3>Ativação de Cadastros</h3> <app-botao-voltar></app-botao-voltar>
             </div>
             <div class="flex flex-row flex-wrap pb-4">
-                <p-table [value]="registers" [tableStyle]="{ 'min-width': '40rem' }">
+                <p-table [value]="registers">
                     <ng-template pTemplate="header">
                         <tr>
                             <th>Nome</th>
@@ -19,8 +19,16 @@
                             <td>{{ register.name }}</td>
                             <td>{{ register.email }}</td>
                             <td>{{ register.role }}</td>
+                            <td *ngIf="register.role === 'Professor'">
+                                <label for="">Por favor preencha a materia</label>
+                                <input 
+                                type="text" 
+                                (change)="updateCourseName($event, register)" 
+                                placeholder="Digite a matéria">
+                            <!-- {{register.courseName}} -->
+                            </td>
                             <td><button 
-                                (click)="AtivarCadastro(register.registerId)"
+                                (click)="AtivarCadastro(register.registerId, register.courseName, register.role)"
                                 pButton 
                                 pRipple 
                                 label="Ativar" 

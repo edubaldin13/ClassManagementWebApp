@@ -33,7 +33,7 @@ export class RegistroComponent {
     cargo: ['', [Validators.required]]
   });
 registrar(){
-  debugger
+  
   this.formRegistro.valid
   var cargo = this.formRegistro.get('cargo').value;
   const registro: any = {
@@ -44,10 +44,10 @@ registrar(){
     role : cargo.Name,
   }
   this.registerService.post('',registro).then(res =>{
-    debugger
+    
     this.formRegistro.reset(true)
   }).catch(err => {
-    debugger
+    
   });
 } 
 }

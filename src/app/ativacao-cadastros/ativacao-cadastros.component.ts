@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../services/register.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ativacao-cadastros',
@@ -8,6 +9,7 @@ import { RegisterService } from '../services/register.service';
 })
 export class AtivacaoCadastrosComponent implements OnInit{
   constructor(
+    private toast: ToastrService,
     private registerService: RegisterService
   ){}
   registers: Array<any>;
@@ -20,15 +22,27 @@ export class AtivacaoCadastrosComponent implements OnInit{
     });
     return roles;
   }
-  AtivarCadastro(id:any){
+
+  updateCourseName(event: Event, register: any): void {
+    const inputElement = event.target as HTMLInputElement;
+    register.courseName = inputElement.value;
+}
+
+
+  AtivarCadastro(id:number, course: string, role: string){
+    
+    if(role === "Professor" && course === ""){
+      this.toast.error("Cadastro de Professor não pode ser ativado pois näo possui curso associado");
+      return
+    }
     this.registerService.put(`/${id}`).then(
       res => {
-        debugger
+        
         this.getRegisters();
       }
     ).catch(
       err => {
-        debugger
+        
       }
     )
   }

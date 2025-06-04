@@ -1,78 +1,75 @@
-<div class="flex justify-content-center ">
-    <div class="flex flex-column cor col-8 p-2">
-        <div class="flex flex-column justify-content-center align-items-center">
-            <div class="flex align-items-center justify-content-center">
-                <h3 class="mr-4">Cadastro de cursos</h3>
-                <app-botao-voltar></app-botao-voltar>
-            </div>
-            <h3>Cursos</h3>
-            <div class="flex flex-row">
-                <div class="ml-2" *ngFor="let item of cursosCadastrados">
-                    <button (click)="excluir(item.graduationCourseId)">Excluir</button>
-                    <button (click)="editarMatriz(item.graduationCourseId)">Matriz Curricular</button>
-                    <div><h4>Noma do curso:</h4>
-                         {{item.name}}
-                    </div>
-                    <div>
-                        <h3>Cordenador:</h3>
-                        {{item.managerName}}
-                    </div>
-                    <div>
-                        <h3>Duração da Aula:</h3>
-                        {{item.classDuration}}
-                    </div>
-                    <div>
-                        <h3>Quantidade de aulas:</h3>
-                        {{item.classesQuantity}}
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-column col-10">
+<div class="flex flex-column align-center w-full h-full overflow-y-scroll">
+    <div class="flex flex-row justify-between cor p-2">
+        <span class="w-full">Cadastro de cursos</span>
+        <app-botao-voltar></app-botao-voltar>
+    </div>
+    
+    <div class="flex flex-column">
+        <div class="flex flex-row justify-center h-full cor p-2">
+            <!-- Novo Curso Section -->
+            <div class="flex flex-column">
                 <h3>Novo Curso</h3>
-                <div>
-                    <form class="flex flex-column justify-content-between col-6 " [formGroup]="formCursos">
-                        <div class="flex col-6 cor">
-                        <div class="mt-4 flex flex-column col-8">
+                <form class="flex flex-column justify-content-between" [formGroup]="formCursos">
+                    <div class="flex flex-column">
+                        <div class="mt-4 flex flex-column">
                             <label>Nome do Curso</label>
-                            <div class="">
-                                <input class="mt-2 w-full" type="text" formControlName="name" autocomplete="off"
-                                pInputText>
-                            </div>
+                            <input class="mt-2 w-full bg-black" type="text" formControlName="name" autocomplete="off" pInputText>
                         </div>
-                        <div class="mt-4 flex flex-column col-12">
-                            <label>Cordenador</label>
-                            <div class=" flex flex-column col-8">
-                                <!-- <input class="mt-2 w-full" type="text" formControlName="managerId" autocomplete="off"
-                                    pInputText> -->
-                                    <p-multiSelect class="mt-2 mr-4" [options]="managers"
-                                    formControlName="managerId" class="multSelect" optionValue="managerId"
-                                    optionLabel="name"></p-multiSelect>
-                                </div>
-                            </div>
-                            <div class="mt-4 flex flex-column col-8 ml-2">
-                                <label>Duração</label>
-                                <div class="">
-                                    <input class="mt-2 w-full" type="text" formControlName="classDuration" autocomplete="off"
-                                    pInputText>
-                                </div>
-                            </div>
-                            <div class="mt-4 flex flex-column col-8">
-                                <label class="white-space-nowrap">Quantidade de Aulas</label>
-                                <div class="">
-                                    <input class="mt-2 w-full" type="number" formControlName="classQuantity" autocomplete="off"
-                                    pInputText>
-                                </div>
+                        <div class="mt-4 flex flex-column">
+                            <label>Coordenador</label>
+                            <p-multiSelect 
+                                class="mt-2 multSelect" 
+                                [options]="managers" 
+                                formControlName="managerId" 
+                                optionValue="managerId" 
+                                optionLabel="name">
+                            </p-multiSelect>
                         </div>
-                        <div class="ml-4 mt-4 flex flex-column col-6">
-                            <button type="submit" pButton (click)="novoCurso()"
-                             class="cursor-pointer"><i
-                             class="pi pi-sign-in w-full"
-                                style="font-size: 20px"></i><label>Novo Curso</label></button>
-                            </div>
+                        <div class="mt-4 flex flex-column">
+                            <label>Duração da Aula</label>
+                            <input class="mt-2 w-full" type="number" formControlName="classDuration" autocomplete="off" pInputText>
                         </div>
-                    </form>
-                </div>
+                        <div class="mt-4 flex flex-column">
+                            <label>Horário inicio da Aula</label>
+                            <input class="mt-2 w-full" type="time" formControlName="classStart" autocomplete="on">
+                        </div>
+                        <div class="mt-4 flex flex-column">
+                            <label>Horario fim da Aula</label>
+                            <input class="mt-2 w-full" type="time" formControlName="classEnd" autocomplete="on">
+                        </div>
+                        <div class="mt-4 flex flex-column">
+                            <button type="submit" pButton (click)="novoCurso()" class="flex text-center align-center cursor-pointer">
+                                <!-- <i class="pi pi-sign-in w-full" style="font-size: 20px"></i> -->
+                                <label>Novo Curso</label>
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-</div>
+        <div class="flex p-2 cor w-auto justify-center overflow-auto overflow-x-auto align-center">
+            <!-- Cursos Cadastrados Section -->
+            <div class="flex flex-column w-full">
+            <span class="">Cursos</span>
+            <div class="p-2 align-middle grid mt-3 sm:grid-cols-1 lg:grid-cols-2">
+                <div class="flex flex-column mx-4 my-2 justify-between" *ngFor="let item of cursosCadastrados">
+                    <div class="flex justify-between">
+                        <button (click)="excluir(item.graduationCourseId)">Excluir</button>
+                        <button (click)="editarMatriz(item.graduationCourseId)">Matriz Curricular</button>
+                    </div>
+                <div>
+                    <span>Nome do curso:</span>
+                    {{ item.name }}
+                </div>
+                <div>
+                    <span>Coordenador:</span>
+                    {{ item.managerName }}
+                </div>
+                <div>
+                    <span>Duração da Aula:</span>
+                    {{ item.classDuration }} minutos
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>

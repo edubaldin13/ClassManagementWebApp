@@ -10,6 +10,7 @@ export class BotaoVoltarComponent {
   constructor(private router: Router){
   }
   Voltar(){
-    this.router.navigate([""]);
+    history.back();
+    // this.router.navigate([""]);
   }
 }

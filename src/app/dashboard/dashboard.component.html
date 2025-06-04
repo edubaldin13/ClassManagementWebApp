@@ -1,15 +1,16 @@
 
-<div class="flex justify-content-center ">
-    <div class="cor col-8 p-2">
-        <div class="flex flex-column align-items-center justify-content-center">
-            <div class="flex align-items-center justify-content-center">
-                <h3>Olá {{name}}, seja bem vindo!</h3> <button (click)="logout()">Desconectar</button>
+<div class="flex justify-center w-full ">
+    <div class="cor p-2 w-full">
+        <div class="flex flex-column align-items-center justify-center">
+            <div class="flex align-items-center justify-content-between w-full">
+                <h3 class="bg-white rounded-xl">Olá {{name}}, seja bem vindo!</h3><button (click)="logout()">Desconectar</button>
             </div>
-            <div class="flex flex-row flex-wrap">
+            <div class="flex flex-row flex-wrap justify-between mt-2">
                 
-                <button (click)="CadastroCursos()" *ngIf="role != 'Teacher'">
+                <button class="" (click)="CadastroCursos()" *ngIf="role != 'Teacher'">
                     Cadastro de cursos
                 </button>
+                <div class="px-2"></div>
                 <button (click)="DispHorarios()" *ngIf="role == 'Teacher' ">
                     Disponibilidade de horários
                 </button>

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
-
+@import "tailwindcss";
 html{
     height: 100%;
     width: 100%;
@@ -9,6 +9,8 @@ html{
 }
 .cor{
     background-color: #66685C;
+    margin: 6px;
+    border: #66685C 2px solid;
 }
 /* Order */
 @layer reset, primeng;
@@ -23,10 +25,20 @@ html{
 @layer tailwind-base, primeng, tailwind-utilities;
         
 @layer tailwind-base {
-    @tailwind base;
+    @import "tailwindcss/preflight";
 }
 
 @layer tailwind-utilities {
-    @tailwind components;
     @tailwind utilities;
+}
+
+button {
+    background-color: aqua;
+    width: auto;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+input{
+    background-color: white;
 }
